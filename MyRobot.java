@@ -24,6 +24,17 @@ public class MyRobot
 	}	// end of robotOffTrack
 	// ------------------------------------------------------------------------------------------------------------//
 	
+	// Method to check if the sensor are off track
+	// ------------------------------------------------------------------------------------------------------------//
+	static boolean isSensorOff(LightSensor sensor, int initialColor, int range) 
+	{
+		return (
+				sensor.getLightValue() < (initialColor - range) ||
+				sensor.getLightValue() > (initialColor + range)
+				);	// end of return of boolean
+	}	// end of method isSensorOff();
+	// ------------------------------------------------------------------------------------------------------------//
+	
 	// Method to reset all Motor values to default
 	// ------------------------------------------------------------------------------------------------------------//
 	static void resetDefaultMotors(NXTMotor leftMotor, NXTMotor middleMotor, NXTMotor rightMotor, int defaultSpeed)
@@ -39,18 +50,6 @@ public class MyRobot
 		middleMotor.backward();	// Motor is attached Backwards
 		//-------------------------------------------------//	
 	}
-	// ------------------------------------------------------------------------------------------------------------//
-
-	// Method to check if the sensor are off track
-	// ------------------------------------------------------------------------------------------------------------//
-	static boolean isSensorOff(LightSensor sensor, int initialColor, int range) 
-	{
-		return (
-				sensor.getLightValue() < (initialColor - range) ||
-				sensor.getLightValue() > (initialColor + range)
-
-				);	// end of return of boolean
-	}	// end of method isSensorOff();
 	// ------------------------------------------------------------------------------------------------------------//
 
 	// Main Method
